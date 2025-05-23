@@ -3,12 +3,25 @@ class User:
         self.login = login
         self.password = password
 
-user_1 = User('abc', 111)
-user_2 = User('def', 222)
-user_3 = User('ghi', 333)
-user_4 = User('jkl', 444)
-user_5 = User('mno', 555)
+Users = \
+[
+User('abc', 111),
+User('def', 222),
+User('ghi', 333),
+User('jkl', 444),
+User('mno', 555)
+]
 
-if user_1.login == 'abc' and user_1.password == 111:
-    print(user_1.login)
-    print(user_1.password)
+target_login = "mno"
+target_password = 555
+
+found_user = None
+for user in Users:
+    if target_login == user.login and target_password == user.password:
+        found_user = user
+        break
+
+if found_user:
+    print(f"Пользователь найден!\nЛогин: {found_user.login}\nПароль: {found_user.password}")
+else:
+    print(f"Пользователь с заданными логином {target_login} и паролем {target_password} - не найден!")
